@@ -124,8 +124,8 @@ int Display(struct node *head)
 }
 
 int main()
-{	int mid,choice=-1;
-	unsigned int num;
+{	int mid,num,choice=-1;
+	
 	/*printf("Enter no of nodes you want to create: \n");
 	scanf("%d",&num);
 	create_node(&head,num);
@@ -144,7 +144,7 @@ int main()
 			{
 				case 1:
 					printf("Enter no of nodes you want to create: \n");
-					scanf("%u",&num);
+					scanf("%d",&num);
 					create_node(&head,num);	
 					break;
 
