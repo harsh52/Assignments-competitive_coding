@@ -5,16 +5,29 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include<netdb.h>
-#define DATA "Hello There"
+//#define DATA "Hello There"
 
 int main(int argc, char *argv[])
 {
 	int sock;
 	struct sockaddr_in server;
 	struct hostent *hp;
+	char line[100];
 	char buff[1024];
-
+	char* DATA[100];
+	int i = 0;
 	sock = socket(AF_INET,SOCK_STREAM,0);
+	FILE *fp;
+	fp = fopen("msg.txt","r");
+
+	while(fgets(line,sizeof(line),fp)!=NULL)
+	{
+		
+		DATA[i] = line;
+		i++;
+		//printf("%s",&DATA[i]);
+	}
+	
 	if(sock<0)
 	{
 		perror("Socket Failed");
@@ -36,13 +49,14 @@ int main(int argc, char *argv[])
 		close(sock);
 		exit(1);
 	}
-	if(send(sock,DATA,sizeof(DATA),0)<0)
+	printf("%s",DATA[0]);
+	if(send(sock,DATA[1],sizeof(DATA),0)<0)
 	{
 	perror("[-]Send Failed");
 	close(sock);
 	exit(1);
 	}
-	printf("send %s \n",DATA);
+	printf("send %s \n",DATA[0]);
 	close(sock);
 	return 0;
 }
