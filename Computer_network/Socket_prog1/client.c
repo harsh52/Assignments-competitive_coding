@@ -20,12 +20,13 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	fp = fopen("msg.txt","r");
 
+
 	while(fgets(line,sizeof(line),fp)!=NULL)
 	{
 		
 		DATA[i] = line;
 		i++;
-		//printf("%s",&DATA[i]);
+		printf("\nhi hi%s\n",DATA[0]);
 	}
 	
 	if(sock<0)
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	printf("%s",DATA[0]);
-	if(send(sock,DATA[1],sizeof(DATA),0)<0)
+	if(send(sock,DATA[0],sizeof(DATA),0)<0)
 	{
 	perror("[-]Send Failed");
 	close(sock);
