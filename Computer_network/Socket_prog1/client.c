@@ -20,12 +20,20 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	fp = fopen("msg.txt","r");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 220092bab094b20eff8717ab13504052ffd80f76
 	while(fgets(line,sizeof(line),fp)!=NULL)
 	{
 		
 		DATA[i] = line;
 		i++;
+<<<<<<< HEAD
 		//printf("%s",DATA[i]);
+=======
+		printf("\nhi hi%s\n",DATA[0]);
+>>>>>>> 220092bab094b20eff8717ab13504052ffd80f76
 	}
 	
 	if(sock<0)

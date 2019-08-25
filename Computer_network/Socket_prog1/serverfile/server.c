@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
 	int mysock;
 	char buff[1024];
 	int rval;
+	FILE *fp;
+	fp = fopen("msg.txt","w");
 
 	//creating socket
 	sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -65,8 +67,10 @@ int main(int argc, char *argv[])
 		else
 		{
 			printf("MSG %s \n",buff);
+			fprintf(fp,"%s",buff);
 		}
 		close(mysock);
+		fclose(fp);
 	}while(1);
 
 	return 0;
