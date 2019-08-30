@@ -19,7 +19,13 @@ int main(int argc, char *argv[])
 	if(child1>0 && grandchild > 0)
 	{
 		printf("\nParent PID %d PPID %d\n",getpid(),getppid());
-		wait(NULL);		
+		wait(NULL);
+		printf("vdfjb");
+		//if(WIFEXITED(grandchild))
+		//{
+
+			printf("\nReturn status of child: %d\n",WIFEXITED(child1));
+		//}		
 		printf("\nChild has terminated\n");	
 	}
 	else if(child1==0 && grandchild >0)
