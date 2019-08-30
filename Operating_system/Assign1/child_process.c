@@ -65,9 +65,13 @@ int main()
 	}
 	else if(child1>0 && grandchild == 0)
 	{
+		char *buf;
+		buf = (char *)malloc(10*sizeof(int));
+		buf = getlogin();//Function to find whho is logged in into the system
 		fprintf(fptr,"%d\n",data);
 		printf("\ngrandchild PID %d\n",getpid());
 		printf("\nROll no: CSB17059\n");
+		printf("\n-- %s -- logged into the system\n",buf);
 	}
 	else
 	{
