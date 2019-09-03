@@ -32,13 +32,12 @@ int main(int argc, char *argv)
 	while(1)
 	{
 		recvfrom(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,&addr_size);
-		//memset(buffer,0,sizeof(buffer));
 		printf("\nRECEIVED: %s\n",buffer);
 		//memset(buffer,0,sizeof(buffer));
 		//printf("\nSEND:");
 		//scanf("%s",buffer);
 
-		//
+		// String Reverse
 			l = strlen(buffer);
 			//printf("sizeof:%d",l);
 			for(i=0;i<l/2;i++)
@@ -47,12 +46,7 @@ int main(int argc, char *argv)
 				buffer[i] = buffer[l-1-i];
 				buffer[l-1-i] = ch;
 			}
-		//
-
-
-
 		sendto(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,sizeof(si_other));
-
 		memset(buffer,0,sizeof(buffer));
 	}
 }
