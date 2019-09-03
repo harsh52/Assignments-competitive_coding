@@ -8,7 +8,9 @@
 int main(int argc, char *argv)
 {
 	int port = 5000;
+	int l,i;
 	int sockfd;
+	char ch;
 	struct sockaddr_in si_me, si_other;
 	char buffer[1024];
 	socklen_t addr_size;
@@ -32,9 +34,23 @@ int main(int argc, char *argv)
 		recvfrom(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,&addr_size);
 		//memset(buffer,0,sizeof(buffer));
 		printf("\nRECEIVED: %s\n",buffer);
-		memset(buffer,0,sizeof(buffer));
-		printf("\nSEND:");
-		scanf("%s",buffer);
+		//memset(buffer,0,sizeof(buffer));
+		//printf("\nSEND:");
+		//scanf("%s",buffer);
+
+		//
+			l = strlen(buffer);
+			//printf("sizeof:%d",l);
+			for(i=0;i<l/2;i++)
+			{
+				ch = buffer[i];
+				buffer[i] = buffer[l-1-i];
+				buffer[l-1-i] = ch;
+			}
+		//
+
+
+
 		sendto(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,sizeof(si_other));
 
 		memset(buffer,0,sizeof(buffer));
