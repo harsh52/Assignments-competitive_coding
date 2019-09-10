@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	{
 		printf("\nParent PID %d PPID %d\n",getpid(),getppid());
 		wait(NULL);
-		printf("vdfjb");
+		printf("Stopped");
 		//if(WIFEXITED(grandchild))
 		//{
 
