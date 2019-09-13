@@ -131,8 +131,8 @@ int main()
 		if(FD_ISSET(tcp_socket,&rset))
 		{
 			//TCP
-			do
-			{
+			//do
+			//{
 				mysock = accept(tcp_socket,(struct sockaddr*)0,0);
 
 				if((child=fork())==0)
@@ -140,13 +140,13 @@ int main()
 					close(sockfd);
 					child_process(mysock);
 				}
-			}while(1);
+			//}while(1);
 		}
 		else if(FD_ISSET(sockfd,&rset))
 		{
 			//UDP
-			while(1)
-			{
+			//while(1)
+			//{
 				recvfrom(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,&addr_size);
 				printf("\nUDP_RECEIVED: %s\n",buffer);
 
@@ -161,7 +161,7 @@ int main()
 				}
 				sendto(sockfd,buffer,1024,0,(struct sockaddr*)&si_other,sizeof(si_other));
 				memset(buffer,0,sizeof(buffer));
-			}
+			//}
 
 		}
 	}
