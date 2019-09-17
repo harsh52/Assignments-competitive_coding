@@ -5,6 +5,24 @@
 #include <unistd.h>
 #include <signal.h>
 
+/*
+Assignment 3
+Problem for the Lab
+Write  a  C  program  to  handle  the  
+reception  of  INTERRUPT  FROM  THE  
+KEYBOARD  signal  by  executing  a  particul
+ar  (user)  function,  which  function  is  
+responsible  for  crea
+ting  a  child  process  by  
+using  fork()  system  call.  Also,  the  child  
+process will take an input N (N is the no. of terms to generate the Fibonacci series) 
+from  the  user  and  generate  the  Fibonacci  series  up  to  N  terms.  Then  the  child  
+process  will  send  the  Fibonacci  series  terms  one  by  one  to  the  parent  process  by  
+using pipe() system call and the parent pr
+ocess will read the Fibonacci series terms 
+one by one and will display it. 
+*/
+
 int main()
 {
 	pid_t pid;
