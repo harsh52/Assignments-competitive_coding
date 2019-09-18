@@ -6,8 +6,10 @@
 #include <signal.h>
 #include <string.h>
 
-/*
 
+
+/*
+Assignment3:
 Write  a  C  program  to  handle  the  
 reception  of  INTERRUPT  FROM  THE  
 KEYBOARD  signal  by  executing  a  particul
