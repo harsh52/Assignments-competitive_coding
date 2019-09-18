@@ -12,7 +12,7 @@ have to display the PROCESS ID and PARENT PROCESS ID from the parent
 process as well as from the child process.
 */
 
-void user_funct()
+void user_funct(int a)
 {
 	int child;
 	child = fork();
@@ -20,6 +20,7 @@ void user_funct()
 	{
 		printf("\nChild pid: %d\n",getpid());
 		printf("\nParent pid:%d\n",getppid());
+		printf("\nSum is:%d\n",a);
 	}
 }
 
@@ -28,7 +29,9 @@ int main()
 	while(1)
 	{
 		printf("\nWaiting for interrupt signal\n");
-		signal(SIGINT,user_funct);
+		//user_funct(2);
+		signal(SIGINT,user_funct(2));
+		//user_funct(2);
 		sleep(1);
 	}
 }
