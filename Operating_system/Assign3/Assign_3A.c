@@ -26,20 +26,10 @@ one by one and will display it.
 
 */
 
-int main()
-{
-	pid_t pid;
-	int mypipfd[2];// mypipfd[0]: Reading
-	int ret;	   // mypipfd[1]: Writing
-	char buffer[200];
-	int input,t3;
-
-
 int mypipfd[2];
 pid_t pid;
 char buffer[200];
 int input;
-
 //oid interrupt_fun(int mypipfd[],int pid,char buffer[],int input)
 void interrupt_fun()
 {	
@@ -102,17 +92,14 @@ int main()
 	scanf("%d",&input);
 	
 
-	while(1)
-	{
+	//while(1)
+	//{
 		printf("\nWaiting for interrupt signal :)\n");
 		//scanf("%d",ret);
 		
 
 		signal(SIGINT,interrupt_fun);
-		a = SIGINT;
-		if(a!=2)
-			break;
 		sleep(2);
-	}
+	//}
 	return 0;
 }
