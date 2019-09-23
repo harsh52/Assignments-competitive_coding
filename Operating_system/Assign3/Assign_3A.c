@@ -38,7 +38,7 @@ void interrupt_fun()
 	if(pid == 0)
 	{
 		//Child Process
-	int t1=0,t2=0,t3=1,child_pid;
+	int t1=0,t2=1,t3,child_pid;
 
 	close(mypipfd[0]); //Close reading mode
 	
@@ -50,9 +50,9 @@ void interrupt_fun()
 	//Fibonacci series
 	for(int i=0; i <= input;i++)
 		{
+		t3 = t1 + t2;
 		t1 = t2;
 		t2 = t3;
-		t3 = t1 + t2;
 		sprintf(buffer,"%d",t3);
 
 		write(mypipfd[1],buffer,sizeof(buffer)+1);
