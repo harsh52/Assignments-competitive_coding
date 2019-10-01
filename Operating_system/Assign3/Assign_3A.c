@@ -92,14 +92,13 @@ int main()
 	scanf("%d",&input);
 	
 
-	//while(1)
-	//{
-		printf("\nWaiting for interrupt signal :)\n");
-		//scanf("%d",ret);
+	
+	printf("\nWaiting for interrupt signal :)\n");
+	//scanf("%d",ret);
 		
 
-		signal(SIGINT,interrupt_fun);
-		sleep(2);
-	//}
+	signal(SIGINT,interrupt_fun);
+	sleep(2);
+	
 	return 0;
 }
