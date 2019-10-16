@@ -6,10 +6,13 @@
 #include <stdlib.h>
 int main()
 {
-  int fd;
+  int fd,sz;
   struct flock lock, savelock;
   printf("PID:%d",getpid());
+  char *c = (char *) calloc(100, sizeof(char)); 
   fd = open("testfile.dat", O_RDWR);
+  sz = read(fd, c, 10); 
+  printf("\nFile Content are:%s\n",c);
   lock.l_type    = F_WRLCK;   /* Test for any lock on any part of file. */
   lock.l_start   = 0;
   lock.l_whence  = SEEK_SET;
