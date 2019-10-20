@@ -8,8 +8,9 @@
 int main()
 {
   struct flock lock, savelock;
-  int fd;
+  int fd,sz;
   printf("PID:%d",getpid());
+  char *c = (char *) calloc(100, sizeof(char));
   fd = open("testfile.dat", O_RDONLY);
   lock.l_type = F_RDLCK;
   lock.l_start = 0;
@@ -21,6 +22,11 @@ int main()
   {
       printf("File is write-locked by process %ld.\n", lock.l_pid);
       exit(1);
+  }
+  else
+  {
+      sz = read(fd, c, 10); 
+      printf("\nFile Content are:%s\n",c);
   }
   fcntl(fd, F_SETLK, &savelock);
   pause();

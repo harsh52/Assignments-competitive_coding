@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+ #include <sys/wait.h>
+#include <sys/types.h>
 int main()
 {
   int fd,sz;
@@ -11,8 +13,8 @@ int main()
   printf("PID:%d",getpid());
   char *c = (char *) calloc(100, sizeof(char)); 
   fd = open("testfile.dat", O_RDWR);
-  sz = read(fd, c, 10); 
-  printf("\nFile Content are:%s\n",c);
+  //sz = read(fd, c, 10); 
+  //printf("\nFile Content are:%s\n",c);
   lock.l_type    = F_WRLCK;   /* Test for any lock on any part of file. */
   lock.l_start   = 0;
   lock.l_whence  = SEEK_SET;
@@ -30,6 +32,11 @@ int main()
      exit(1);
   }
   else
+     sz = read(fd, c, 10); 
+     printf("\nFile Content are:%s\n",c);
      fcntl(fd, F_SETLK, &savelock);
+     sleep(10);
+     printf("\nLock Released\n");
+     exit(0);
   pause();
 }
