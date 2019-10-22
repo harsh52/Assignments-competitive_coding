@@ -106,8 +106,16 @@ void main()
 
     }
     printf("\n");
-    for(int i=0;i<12;i++)
-    {
-    	printf("%d",code[i]);
-    }
+    //Int to char 
+    int i;
+		char output[35];
+		memset(output,0,sizeof(output));
+		for (i = 0; i< 12; i++)
+			{
+    		output[i] = code[i] + '0';
+			}
+
+    		
+
+			printf("send:%s",output);
  }

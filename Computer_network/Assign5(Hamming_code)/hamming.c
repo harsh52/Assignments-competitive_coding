@@ -49,36 +49,7 @@ void main()
 		printf("%d",code[i]);
 	printf("\n");
 
-/////
-	int lower = 0, upper = 10, count = 1; 
-  
-    // Use current time as  
-    // seed for random generator 
-    srand(time(0));
-    for(int i=0;i<count;i++)
-    {
-    	int num = (rand()%(upper-lower+1)) + lower;
-    	if(num == 1 || num ==2 || num ==3)
-    	{
-    		lower2 = 0, upper = 12, count = 1;
-    		for(int j=0;j<count;j++)
-    		{
-    			int num2 = (rand()%(upper2-lower2+1)) + lower2;
 
-    			if(code[num2]==0)
-    			{
-    				code[num2]=1;
-    			}
-    			else
-    			{
-    				code[num2] = 0;
-    			}
-
-
-    		}
-    	}
-
-    }
 /////
 
 
