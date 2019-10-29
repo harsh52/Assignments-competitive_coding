@@ -45,21 +45,6 @@ int child_process(int mysock)
 			recv(mysock,DATA2,sizeof(DATA2),0);
 			//printf("\nsizeofdata: %d\n",DATA);
 			printf("\nReceived: %s\n",DATA2);
-			//memset(DATA,0,sizeof(DATA));
-			/*l = strlen(DATA2);
-			//printf("sizeof:%d",l);
-			for(i=0;i<l/2;i++)
-			{
-				ch = DATA2[i];
-				DATA2[i] = DATA2[l-1-i];
-				DATA2[l-1-i] = ch;
-
-			}
-			printf("\nSend: %s",DATA2);
-			//scanf("%s",DATA);
-			send(mysock,DATA2,strlen(DATA2),0);*/
-
-			//Char to int
 
 			int i;
 			//int output[35];
@@ -83,7 +68,7 @@ int child_process(int mysock)
 				printf("The received Code Word is correct.\n");
 			else
 			{
-				printf("Error at bit position: %d\n",error_pos);
+				printf("Error at bit position: %d\n",error_pos-1);
 				if(code[error_pos-1]==0)
 				{
 					code[error_pos-1]=1;
