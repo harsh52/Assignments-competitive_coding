@@ -61,11 +61,6 @@ int main(int argc,char* argv[])
 	{
 		memset(DATA,0,sizeof(DATA));
 
-		/*printf("\nSend Message:\n");
-		scanf("%s",DATA);*/
-
-		//////////////////////////////////////////////////////
-
 
 		printf("Please enter the Data Word:\n");
 			for(i=0;i<n;i++)
@@ -173,11 +168,6 @@ int main(int argc,char* argv[])
 
 		memset(output,0,sizeof(output));
 
-		/*if(rval=recv(sock,DATA,sizeof(DATA),0)<0)
-		{
-			perror("\n[-]Error\n");
-		}
-		printf("\nReceived message: %s\n",DATA);*/
 
 	}
 
