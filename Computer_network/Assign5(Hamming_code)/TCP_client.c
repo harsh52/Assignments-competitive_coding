@@ -117,15 +117,18 @@ int main(int argc,char* argv[])
     		srand(time(0));
     		for(int i=0;i<count;i++)
     		{
-    			int num = (rand()%(upper-lower+1)) + lower;
-    			printf("%d\n",num );
-    			if(num == 1 || num ==2 || num ==3)
+    			//int num = (rand()%(upper-lower+1)) + lower;
+			int num;
+			printf("Enter probability percentage");
+			scanf("%d",&num);
+    			//printf("%d\n",num );
+    			if(num == 1 || num ==2 || num ==3 || num == 4 || num == 5)
     			{
     				lower2 = 0, upper = 12, count = 1;
     				for(int j=0;j<count;j++)
     				{
     					int num2 = (rand()%(upper2-lower2+1)) + lower2;
-
+					printf("\nError inserted at %d\n",num2);
     					if(code[num2]==0)
     					{
     						code[num2]=1;
