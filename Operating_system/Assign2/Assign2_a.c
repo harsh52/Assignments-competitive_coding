@@ -12,7 +12,7 @@ have to display the PROCESS ID and PARENT PROCESS ID from the parent
 process as well as from the child process.
 */
 
-void user_funct(int a)
+int user_funct(int a)
 {
 	int child;
 	child = fork();
