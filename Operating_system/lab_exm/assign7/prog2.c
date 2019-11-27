@@ -22,8 +22,8 @@ int main()
 //	int id = semget(key,1,0666|IPC_CREAT);
 	int id = 0;
 	char filename[20],c;
-	FILE *fp = fopen("program.txt","r");
-	c = fgetc(fp);
+	//FILE *fp = fopen("program.txt","r");
+	//c = fgetc(fp);
 	if(id<0)
 	{
 		perror("semget error");
@@ -31,16 +31,18 @@ int main()
 	}
 	union semun u;
 	u.val = 1;
-	if((semctl(id,0,SETVAL,u))<0)
-	{
-		perror("semctl error");
-		exit(1);
-	}
+	//if((semctl(id,0,SETVAL,u))<0)
+	//{
+	//	perror("semctl error");
+	//	exit(1);
+	//}
 	if((semop(id,&p,1))<0)
 	{
 		perror("semop error");
 		exit(1);
 	}
+	FILE *fp = fopen("program.txt","r");
+	c = fgetc(fp);
 	while(c!=EOF)
 	{
 		printf("%c",c);

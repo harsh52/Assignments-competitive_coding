@@ -18,7 +18,7 @@ struct sembuf v = {0,+1,SEM_UNDO};
 
 int main()
 {
-	FILE *fp = fopen("program.txt","r");
+	//FILE *fp = fopen("program.txt","r");
 	char filename[20],c;
 	int id = semget(key,1, 0666 | IPC_CREAT);
 	printf("id: %d\n",id);
@@ -40,6 +40,7 @@ int main()
 		perror("\nsemop error\n");
 		exit(1);
 	}
+	FILE *fp = fopen("program.txt","r");
 	c = fgetc(fp);
 	while(c!=EOF)
 	{
