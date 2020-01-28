@@ -1,0 +1,4 @@
+C is a programming language.
+lex produces a lexical analyser
+
+      cc is a compiler 
