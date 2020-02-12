@@ -17,20 +17,43 @@ genetoacid =  {'ttt':'F','ttc':'F','tta':'L','ttg':'L',\
                'ggg':'G'
 	
 }
+amino=""
+str1 = ''
+list1 = []
+count = 0
+amino_file = open("test_demo.txt", "w")
+with open("test.txt","r") as f:
+	
+	#f.content = f.read(1)
+	while True:
+		f.content = f.read(1)
+		if(len(f.content) ==0):
+			break
+		if(f.content==">"):
+			amino=''
+			list1.append(str(f.readline()))
+		else:
+			
+			if(f.content=='a' or f.content=='t' or f.content=='g' or f.content=='c'):
+				str1 = str1 + str(f.content)
+			else:
+				continue
 
-amino_file = open("amino_file.txt", "w")
-with open("Ecol_K12_MG1655_.ena","r") as f:
-	size_to_read = 3
-	f.content = f.read(size_to_read)
-	while len(f.content)>0:
-		for gc,amino in genetoacid.items():
-			if gc == f.content:
-				print(amino,end='')
-				amino_file.write(amino)
-				
-			elif f.content=="taa" or f.content == "tag" or f.content == "tga":
-				print("Stop\n",end='')
-				amino_file.write("Stop\n")
-				#f.content = f.read(size_to_read)
-				break
-		f.content = f.read(size_to_read)
+			count = count + 1
+			if(count == 3):
+				count=0
+				if(str1=="taa" or str1 == "tag" or str1 == "tga"):
+					#print("*\n",end='')
+					amino_file.write(amino)
+					amino_file.write("*\n")
+					f.content = f.read(1)
+					str1=''
+				else:
+					amino= amino + str(genetoacid[str1])
+					#print(amino,end='')
+					#amino_file.write(amino)
+					#f.content = f.read(1)
+					str1=''
+
+	#f.content = f.read(size_to_read)
+	#amino_file.write(amino)
