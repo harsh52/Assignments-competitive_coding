@@ -1,3 +1,10 @@
+import sqlite3
+
+conn = sqlite3.connect('SE.db')
+c=conn.cursor()
+
+c.execute('CREATE TABLE IF NOT EXISTS genetic(gene TEXT,acid TEXT)')
+
 
 genetoacid =  {'ttt':'F','ttc':'F','tta':'L','ttg':'L',\
 			   'ctt':'L','ctc':'L','cta':'L','ctg':'L',\
@@ -19,6 +26,7 @@ genetoacid =  {'ttt':'F','ttc':'F','tta':'L','ttg':'L',\
 }
 amino=""
 str1 = ''
+str_fin=''
 list1 = []
 count = 0
 amino_file = open("test_demo.txt", "w")
@@ -31,11 +39,14 @@ with open("test.txt","r") as f:
 			break
 		if(f.content==">"):
 			amino=''
+			#print(str_fin,end="9999\n")
+			str_fin = ''
 			list1.append(str(f.readline()))
 		else:
 			
 			if(f.content=='a' or f.content=='t' or f.content=='g' or f.content=='c'):
 				str1 = str1 + str(f.content)
+				str_fin = str_fin + str1
 			else:
 				continue
 
@@ -46,6 +57,8 @@ with open("test.txt","r") as f:
 					#print("*\n",end='')
 					amino_file.write(amino)
 					amino_file.write("*\n")
+					c.execute("INSERT INTO genetic(gene,acid) VALUES(?, ?)",(str_fin,amino))
+					conn.commit()
 					f.content = f.read(1)
 					str1=''
 				else:
