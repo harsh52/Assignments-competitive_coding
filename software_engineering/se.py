@@ -46,7 +46,8 @@ with open("test.txt","r") as f:
 			
 			if(f.content=='a' or f.content=='t' or f.content=='g' or f.content=='c'):
 				str1 = str1 + str(f.content)
-				str_fin = str_fin + str1
+				#str_fin = str_fin + str1
+				#print(str_fin)
 			else:
 				continue
 
@@ -62,6 +63,7 @@ with open("test.txt","r") as f:
 					f.content = f.read(1)
 					str1=''
 				else:
+					str_fin = str_fin + str1
 					amino= amino + str(genetoacid[str1])
 					#print(amino,end='')
 					#amino_file.write(amino)
