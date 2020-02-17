@@ -28,10 +28,10 @@ def per_calculation(amino,str_fin,count1):
 		elif i == 'c':
 			c = c + 1
 	print(a,t,g,c)
-	per_a = (a/len(str_fin))*100
-	per_t = (t/len(str_fin))*100
-	per_g = (g/len(str_fin))*100
-	per_c = (c/len(str_fin))*100 
+	per_a = round((a/len(str_fin))*100,2)
+	per_t = round((t/len(str_fin))*100,2)
+	per_g = round((g/len(str_fin))*100,2)
+	per_c = round((c/len(str_fin))*100,2) 
 	#count1 = count1 + 1
 	c1.execute("INSERT INTO genetic(sl_no,gene,acid,per_a,per_t,per_g,per_c) VALUES(?, ?, ?, ?, ?, ?, ?)",(count1,str_fin,amino,per_a,per_t,per_g,per_c))
 	conn.commit()
