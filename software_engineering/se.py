@@ -1,9 +1,41 @@
 import sqlite3
 
 conn = sqlite3.connect('SE.db')
-c=conn.cursor()
+c1=conn.cursor()
 
-c.execute('CREATE TABLE IF NOT EXISTS genetic(gene TEXT,acid TEXT)')
+c1.execute('CREATE TABLE IF NOT EXISTS genetic(sl_no REAL,gene TEXT,acid TEXT,per_a REAL,per_t REAL,per_g REAL,per_c REAL)')
+
+
+count1 = 0
+def per_calculation(amino,str_fin,count1):
+	a=0
+	t=0
+	g=0
+	c=0
+	per_a = 0
+	per_t = 0
+	per_g = 0
+	per_c = 0
+	#print(amino)
+	for i in str_fin:
+		if i == 'a':
+			a = a + 1
+			#print("rfgv")
+		elif i == 't':
+			t = t + 1
+		elif i == 'g':
+			g = g + 1
+		elif i == 'c':
+			c = c + 1
+	print(a,t,g,c)
+	per_a = (a/len(str_fin))*100
+	per_t = (t/len(str_fin))*100
+	per_g = (g/len(str_fin))*100
+	per_c = (c/len(str_fin))*100 
+	#count1 = count1 + 1
+	c1.execute("INSERT INTO genetic(sl_no,gene,acid,per_a,per_t,per_g,per_c) VALUES(?, ?, ?, ?, ?, ?, ?)",(count1,str_fin,amino,per_a,per_t,per_g,per_c))
+	conn.commit()
+	return 0
 
 
 genetoacid =  {'ttt':'F','ttc':'F','tta':'L','ttg':'L',\
@@ -58,8 +90,11 @@ with open("test.txt","r") as f:
 					#print("*\n",end='')
 					amino_file.write(amino)
 					amino_file.write("*\n")
-					c.execute("INSERT INTO genetic(gene,acid) VALUES(?, ?)",(str_fin,amino))
-					conn.commit()
+					#print(amino,end='####')
+					count1 = count1 + 1
+					per_calculation(amino,str_fin,count1)
+					#c.execute("INSERT INTO genetic(gene,acid) VALUES(?, ?)",(str_fin,amino))
+					#conn.commit()
 					f.content = f.read(1)
 					str1=''
 				else:
