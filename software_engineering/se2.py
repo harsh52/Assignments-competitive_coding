@@ -1,14 +1,16 @@
 import sqlite3
 
-conn = sqlite3.connect('SE.db')
+conn = sqlite3.connect('SE2.db')
 c1=conn.cursor()
 
 c1.execute('CREATE TABLE IF NOT EXISTS genetic(sl_no REAL,gene TEXT,acid TEXT,per_a REAL,per_c REAL,per_d REAL,per_e REAL,per_f REAL,per_g REAL,per_h REAL,per_i REAL,per_j REAL,per_k REAL,per_l REAL,per_m REAL,per_n REAL,per_p REAL,per_q REAL,per_r REAL,per_s REAL,per_t REAL,per_v REAL,per_w REAL,per_y REAL)')
 
-
+amino2 = ''
 count1 = 0
 
-
+def cal_amino(amino,amino2):
+	amino2 = amino + amino2
+	return amino2
 
 def per_calculation(amino,str_fin,count1):
 	a=0
@@ -161,7 +163,7 @@ str1 = ''
 str_fin=''
 list1 = []
 count = 0
-amino2 = 0
+#amino2 = 0
 amino_file = open("test_demo.txt", "w")
 with open("test.txt","r") as f:
 	
@@ -193,8 +195,8 @@ with open("test.txt","r") as f:
 					amino_file.write("*\n")
 					#print(amino,end='####')
 					count1 = count1 + 1
-					#amino2=cal_amino(amino)
-					per_calculation(amino,str_fin,count1)
+					amino3=cal_amino(amino,amino2)
+					#
 					#c.execute("INSERT INTO genetic(gene,acid) VALUES(?, ?)",(str_fin,amino))
 					#conn.commit()
 					f.content = f.read(1)
@@ -206,6 +208,7 @@ with open("test.txt","r") as f:
 					#amino_file.write(amino)
 					#f.content = f.read(1)
 					str1=''
+	per_calculation(amino3,str_fin,count1)
 
 	#f.content = f.read(size_to_read)
 	#amino_file.write(amino)
