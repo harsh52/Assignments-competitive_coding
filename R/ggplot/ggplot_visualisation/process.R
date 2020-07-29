@@ -7,3 +7,5 @@ qplot(data=msleep, #data
 #now using official ggplot
 ggplot(data=economics,
        mapping = aes(x=date, y=unemploy)) + geom_point() 
+
+#next tutorial
