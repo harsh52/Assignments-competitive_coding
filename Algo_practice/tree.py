@@ -31,7 +31,8 @@ class tree:
         self.inorder(root.left)
         print(root.data)
         self.inorder(root.right)
-		
+	
+#improve algo 	
 BST = tree()
 BST.make_node(BST.start,2)
 BST.make_node(BST.start,3)
