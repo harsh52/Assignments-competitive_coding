@@ -1,0 +1,19 @@
+Package: golemshiny
+Title: My Shiny App
+Version: 0.0.0.9000
+Authors@R: person('harsh', 'kumar', email = 'hkumar8897@GMAIL.COM', role = c('cre', 'aut'))
+Description: Shiny using Golem
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny,
+    processx,
+    attempt,
+    glue,
+    htmltools
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
