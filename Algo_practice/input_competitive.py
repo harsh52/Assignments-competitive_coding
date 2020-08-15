@@ -34,3 +34,27 @@ import sys
 def get_list(): return list(map(int, sys.stdin.readline().strip().split())) 
   
 Arr = get_list() 
+
+
+
+'''
+When you want to take input of string
+Suppose the input is of the following form
+
+GeeksforGeeks is the best platform to practice Coding.
+and we want that a single reference variable will hold this string. What we want is :
+
+string = "GeeksforGeeks if the best platform to practice coding."
+So, here we will create a function named as get_string() as follows:
+'''
+
+import sys 
+def get_string(): return sys.stdin.readline().strip() 
+  
+string = get_string() 
+
+
+# basic method of input output 
+# input N 
+#For taking single input
+n = int(input()) 
