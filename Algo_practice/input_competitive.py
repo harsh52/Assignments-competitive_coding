@@ -58,3 +58,11 @@ string = get_string()
 # input N 
 #For taking single input
 n = int(input()) 
+
+
+
+
+#For strings -
+I love python
+l = list(input().split())
+#The value of l will be l=['I','love','python']
