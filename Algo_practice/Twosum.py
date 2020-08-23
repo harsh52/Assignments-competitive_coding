@@ -19,12 +19,15 @@ def solution(A,target):
 	for key,value in hash1.items():
 		index1 = hash1[key]
 		key1 = target - key
-		index2 = hash1.get(key1)
-		if(index2!= None):
-			out_list = [index1,index2]
-			print(out_list)
-			return(out_list)
-			break
+		if(key1==key):
+			continue
+		else:
+			index2 = hash1.get(key1)
+			if(index2!= None):
+				out_list = [index1,index2]
+				print(out_list)
+				return(out_list)
+				break
 
 
 A = [3,2,4]
