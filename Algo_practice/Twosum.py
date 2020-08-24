@@ -16,9 +16,13 @@ def solution(A,target):
 	for i in range(len(A)):
 		hash1[A[i]] = i
 	print(hash1)
+	lenght_dict = len(hash1.keys())
+	print(lenght_dict)
+	count = 0
 	for key,value in hash1.items():
 		index1 = hash1[key]
 		key1 = target - key
+		count += 1
 		if(key1==key):
 			continue
 		else:
