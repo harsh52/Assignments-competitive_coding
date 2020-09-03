@@ -13,23 +13,25 @@ cols_of_interest <- c("direction","alpha","source")
 bydir %>% 
   select(all_of(cols_of_interest))->p1
 p1 %>% 
-  ggplot()+
-  geom_line(aes(x = direction,
-                y = alpha,
+  mutate(direction = direction %>% factor() %>% fct_inorder()) %>% 
+  ggplot(aes(x = direction,
+         y = alpha))+
+  geom_line(aes(
                 color = source,
                 group=source,
-                linetype = source
+                linetype = source,
                 #group=rev(source)
                 #shape = factor(source)
                 ),
             size=2) +
-  scale_x_discrete(limits=p1$direction) +
+  #scale_x_discrete(limits=p1$direction) +
   aes(group=rev(alpha)) +
-  geom_point(aes(x=direction,
-                 y=alpha,
+  geom_point(aes(
                  color=source,
-                 group=source),
-             size=3
+                 group=source,
+                 shape = source),
+             size=5,
+             alpha=0.3
              ) +
   labs(title = "M2 Nundle : alpha comparison",
        x="Direction",
