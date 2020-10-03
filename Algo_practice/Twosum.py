@@ -34,7 +34,7 @@ def solution(A,target):
 				break
 
 
-A = [3,2,4]
+A = [3,2,4,3]
 
 
 target = 6
