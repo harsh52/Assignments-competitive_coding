@@ -38,6 +38,11 @@ N,M,K = map(int,input().split())
 c = list(map(int,input().split()))
 b = [list(map(int, input().split())) for i in range(M)]
 
+print("\n")
+print(N,M,K)
+print(c)
+print(b)
+
 graph = [[INF for j in range(N)]
 			for i in range(N)]
 
@@ -54,6 +59,6 @@ for i in b:
         graph[val1][val2] = val3
         M = M - 1
 
-print(minCost(graph))
+#print(minCost(graph))
 
 # This code is contributed by Bhavya Jain
