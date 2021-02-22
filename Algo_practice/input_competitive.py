@@ -66,3 +66,21 @@ n = int(input())
 I love python
 l = list(input().split())
 #The value of l will be l=['I','love','python']
+
+'''
+Sample input of below code:
+5 3 1
+1 2 1 4
+1 2 3
+1 3 2
+3 4 1
+
+sample output:
+5 3 1
+[1, 2, 1, 4]
+[[1, 2, 3], [1, 3, 2], [3, 4, 1]]
+'''
+
+N,M,K = map(int,input().split())
+c = list(map(int,input().split()))
+b = [list(map(int, input().split())) for i in range(M)] #take input till M line and store in into list of list(See above sample o/p)

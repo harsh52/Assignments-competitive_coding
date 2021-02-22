@@ -29,11 +29,13 @@ def countSubstrings(s, c):
 	# For the characters appearing 
 	# after the last occurrence of c 
 	Sum += (cnt * (cnt + 1)) // 2
-	return n*(n+1)//2 - Sum
+	return n*(n+1)//2 - Sum-1
 
 # Driver code 
-s = "geeksforgeeks"
-c = 'e'
+inp=list(input().split(","))
+str1 = inp[0]
+x = inp[1]
+n = len(str1)
 
 print(countSubstrings(s, c)) 
 
