@@ -9,6 +9,7 @@
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         q = collections.deque()
+        list1 = []
         while(1):
             while(root != None):
                 q.append(root)
@@ -16,13 +17,13 @@ class Solution:
             #if(q == None):
              #   break
             if(q):
-                # stack is not empty
                 #when we use pop() for stack (LIFO)
                 #popleft() for queue (FIFO)
                 #root = q.popleft() #FIFO (Queue)
                 root = q.pop()#LIFO(stack)
-                print(root.val)
+                #print(root.val)
+                list1.append(root.val)
                 root = root.right
             else:
-                #stack is empty
                 break
+        return(list1)
