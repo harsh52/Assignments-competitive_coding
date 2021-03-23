@@ -5,22 +5,10 @@
 #         self.left = left
 #         self.right = right
 from collections import deque
-class Solution:
-    '''
-    def helper(root,list1):
-        if(root == None):
-            return
-        Solution.helper(root.left,list1)
-        #print(root.val)
-        list1.append(root.val)
-        Solution.helper(root.right,list1)
-    '''    
+class Solution:  
         
     def inorderTraversal(self, root:  TreeNode) -> List[int]:
-        
-        #list1 = []
-        #Solution.helper(root,list1)
-        #return(list1)
+
         stack = deque()
         list2 = []
         curr = root
